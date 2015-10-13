@@ -1,0 +1,27 @@
+sudo: false
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    # PHP 7 is still in active development.
+    - php: 7.0
+
+before_script:
+  - composer config -g github-oauth.github.com $GITHUB_COMPOSER_AUTH
+  - composer self-update
+  - composer install --no-interaction
+  - sh -e /etc/init.d/xvfb start
+  - export DISPLAY=:99.0
+
+script: bin/kahlan
+
+env:
+  global:
+    secure: DGTHG4aJhYnLDZWx+hW83ON11RUY6bd1t0t6wZuZOgB+vC+Fps/QJxh44EKfbPRKnUGNJiJgWcca83WAVEwuY2s7wEJrV7r4S5wTar6uuwcXUmds9G7HXnjUpfTtdIsqruhnwO+WufH2VCqYPNLLOykeJWyO3JcVC/BRs0kxuvE=
