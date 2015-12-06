@@ -1,5 +1,5 @@
 <?php
-namespace testing\spec\api;
+namespace Testing\Spec\Api;
 
 use Exception;
 

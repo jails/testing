@@ -1,10 +1,10 @@
 <?php
-namespace testing\spec\matcher;
+namespace Testing\Spec\Matcher;
 
 use Exception;
 use Behat\Mink\Element\Element;
-use testing\spec\api\ElementNotFound;
-use kahlan\util\Text;
+use Testing\Spec\Api\ElementNotFound;
+use Kahlan\Util\Text;
 
 class ToContain {
 

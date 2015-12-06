@@ -1,6 +1,6 @@
 <?php
-use kahlan\Suite;
-use testing\spec\api\ElementNotFound;
+use Kahlan\Suite;
+use Testing\Spec\Api\ElementNotFound;
 
 /**
  * Gets the browser session.

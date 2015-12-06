@@ -1,12 +1,12 @@
 <?php
-namespace testing\spec\suite;
+namespace Testing\Spec\Suite;
 
 describe("Google", function() {
 
     it("finds the Google logo", function() {
 
         browser()->visit('http://www.google.fr');
-        expect(element('#hplogo')->getAttribute('title'))->toBe('Google');
+        expect(element('#hplogo'))->not->toBeAnInstanceOf('Testing\Spec\Api\ElementNotFound');
 
     });
 

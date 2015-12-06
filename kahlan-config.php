@@ -1,15 +1,15 @@
 <?php
-require __DIR__ . "/spec/api/helpers.php";
+require __DIR__ . "/spec/Api/Helpers.php";
 
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Mink;
 use Behat\Mink\Session;
 use Peridot\WebDriverManager\Manager;
-use box\Box;
-use code\Code;
-use code\TimeoutException;
-use filter\Filter;
-use kahlan\Matcher;
+use Kahlan\Box\Box;
+use Kahlan\Code\Code;
+use Kahlan\Code\TimeoutException;
+use Kahlan\Filter\Filter;
+use Kahlan\Matcher;
 
 $box = box('spec', new Box());
 
@@ -59,7 +59,7 @@ Filter::register('register.globals', function ($chain) {
 });
 
 Filter::register('register.matchers', function ($chain) {
-    Matcher::register('toContain', 'testing\spec\matcher\ToContain', 'Behat\Mink\Element\Element');
+    Matcher::register('toContain', 'Testing\Spec\Matcher\ToContain', 'Behat\Mink\Element\Element');
     return $chain->next();
 });
 
