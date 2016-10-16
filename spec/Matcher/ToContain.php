@@ -44,10 +44,10 @@ class ToContain {
     public static function _buildDescription($actual, $expected)
     {
         $description = "to contain the expected text.";
-        $params['actual'] = $actual;
-        $params['expected'] = $expected;
+        $data['actual'] = $actual;
+        $data['expected'] = $expected;
 
-        static::$_description = compact('description', 'params');
+        static::$_description = compact('description', 'data');
     }
 
     /**

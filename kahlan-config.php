@@ -28,8 +28,8 @@ $box->service('mink', function() {
 
 Filter::register('exclude.namespaces', function ($chain) {
     $defaults = ['Behat'];
-    $excluded = $this->args()->get('exclude');
-    $this->args()->set('exclude', array_unique(array_merge($excluded, $defaults)));
+    $excluded = $this->commandLine()->get('exclude');
+    $this->commandLine()->set('exclude', array_unique(array_merge($excluded, $defaults)));
     return $chain->next();
 });
 
