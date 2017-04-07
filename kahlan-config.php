@@ -11,7 +11,7 @@ use Kahlan\Code\TimeoutException;
 use Kahlan\Filter\Filter;
 use Kahlan\Matcher;
 
-$box = box('spec', new Box());
+$box = \Kahlan\box('spec', new Box());
 
 $box->service('manager', function() {
     $manager = new Manager();
@@ -34,7 +34,7 @@ Filter::register('exclude.namespaces', function ($chain) {
 });
 
 Filter::register('run.webdriver', function($chain) {
-    $process = box('spec')->get('manager');
+    $process = \Kahlan\box('spec')->get('manager');
     try {
         $fp = Code::spin(function() {
             return @fsockopen('localhost', 4444);
@@ -50,7 +50,7 @@ Filter::register('run.webdriver', function($chain) {
 
 Filter::register('register.globals', function ($chain) {
     $root = $this->suite();
-    $root->mink = $mink = box('spec')->get('mink');
+    $root->mink = $mink = \Kahlan\box('spec')->get('mink');
 
     $root->afterEach(function() use ($mink) {
         $mink->resetSessions();
@@ -64,7 +64,7 @@ Filter::register('register.matchers', function ($chain) {
 });
 
 Filter::register('cleanup', function ($chain) {
-    $box = box('spec');
+    $box = \Kahlan\box('spec');
     $box->get('mink')->stopSessions();
     $box->get('manager')->close();
     return $chain->next();
